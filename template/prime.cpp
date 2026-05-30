@@ -1,20 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-int x;
-bool isPrime(int n) {
-    if(n<2)     return false;
-    if(n==2)    return true;
-    if(n%2==0)  return false;
-    for(int i=3;i*i<=n;i+=2)
+int n;
+bool isPrime(int CheckPrime) {
+    if(CheckPrime<2)     return 0;
+    if(CheckPrime==2)    return 1;
+    if(CheckPrime%2==0)  return 0;    //这里跳过2的倍数来加快速度
+    for(int i=3;i*i<=CheckPrime;i+=2)
     {
-        if(n%i==0) return false;
+        if(CheckPrime%i==0) return 0;
     }
-    return true;
+    return 1;
 }
 int main()
 {
-    cin>>x;
-    if(isPrime(x)) cout<<"Yes"<<endl;
-    else cout<<"No"<<endl;
+    cin>>n;
+    if(isPrime(n)) cout<<"Yes"<<endl;
+    else           cout<<"No"<<endl;
     return 0;
 }
